@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { EXPO } from './Information';
+import { EXPO } from '../Pages/Information';
 import NavBar from './NavBar';
 import Footer from './Footer';
 function CardDe() {
@@ -8,7 +8,11 @@ function CardDe() {
     const card=EXPO.find((item)=>item.id==id);
   return (
     <>
+    <div className='flex flex-col justify-between w-full'>
+      <div>
     <NavBar />
+    </div>
+    <div>
     <div className="flex flex-col items-center">
   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
     <div className="bg-white p-4 rounded-lg shadow-md h-full">
@@ -23,7 +27,11 @@ function CardDe() {
     </div>
   </div>
 </div>
+</div>
+<div className='mt-20'>
   <Footer />
+  </div>
+  </div>
   </>
   )
 }

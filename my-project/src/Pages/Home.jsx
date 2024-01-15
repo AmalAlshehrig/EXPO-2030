@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import NavBar from './NavBar'
-import Footer from './Footer'
+import NavBar from '../components/NavBar'
+import Footer from '../components/Footer'
 import  {EXPO} from './Information'
 import { Link } from 'react-router-dom'
 // import VideoPlayer from "react-video-js-player";
@@ -20,31 +20,27 @@ function Home() {
         <NavBar/>
         <div className="flex min-h-screen items-center justify-center p-10">
   <div className="w-max">
-    <p className="animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5 text-5xl text-white font-bold max-sm:text-l">
+    <p className="animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5 text-5xl text-white font-bold max-sm:text-lg">
         Welcom To Riyadh 
     </p>
   </div>
 </div>
-{/* <VideoPlayer
-            className="flex items-center"
-            src="https://youtu.be/ZDqEXYdOS6A"
-            controls
-        /> */}
-<div className="w-full mx-auto mb-6 h-16 max-sm:items-center">
+<div className="w-full mx-auto mb-6 h-8 max-sm:items-center flex flex-row justify-center">
           <input
-            type="text"
-            placeholder="Search..."
-            value={searchTerm}
-            onChange={handleSearch}
-            className="w-32 h-8 p-4 border border-black rounded-lg items-center"
-          />
+  class=" text-zinc-600 font-mono ring-1 ring-zinc-400 focus:ring-2 focus:ring-blue-400 outline-none duration-300 placeholder:text-zinc-600 placeholder:opacity-50 rounded-full px-4 py-1 shadow-md focus:shadow-lg focus:shadow-blue-400"
+  type="text"
+  placeholder="Search..."
+  value={searchTerm}
+  onChange={handleSearch}
+/>
+
         </div>
 <div className="grid grid-cols-1 max-sm:flex max-sm:flex-col max-sm:px-20 md:grid-cols-4 space-x-2">
   {filteredExpo.map((card) => (
     <div key={card.id} className="w-full mx-auto mb-6 ">
       <div className="relative flex flex-col min-w-0 break-words bg-white w-60 h-full shadow-lg rounded-lg overflow-hidden text-center"style={{ backgroundImage: `url(${card.image})`,backgroundSize: 'cover'}}>
         {/* <img src={card.IMAGE} className="w-full h-40 object-cover rounded-t-lg" alt={card.title} /> */}
-        <Link to={`/Home/${card.id}`}>
+        <Link to={`/${card.id}`}>
           <blockquote className="relative p-8 mb-4 text-gray-800">
             <p className="text-lg font-bold text-center text-white">{card.title}</p>
           </blockquote>

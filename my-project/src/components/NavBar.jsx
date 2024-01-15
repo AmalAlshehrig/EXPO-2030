@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState,useEffect } from 'react'
 import Popup from 'reactjs-popup';
-import { Link } from 'react-router-dom';
+import '../App.css'
 function NavBar() {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [isSignup, setIsSignup] = useState(false);
@@ -112,13 +112,16 @@ function NavBar() {
 
   return (
     <div className='flex justify-between p-4'>
-        <img src="https://riyadhexpo2030.sa/wp-content/uploads/2023/02/Riyadh_Expo_2030-Logo-Colored@2x-1.webp" className='w-20'/>
+        {/* <img src="https://riyadhexpo2030.sa/wp-content/uploads/2023/02/Riyadh_Expo_2030-Logo-Colored@2x-1.webp" className='w-20'/> */}
       <div className="p-2">
         {!isLoggedIn ? (
           <>
-            <Popup trigger={<button id="login-popup-trigger" className="text-sm text-center px-8">New Account</button>} modal nested>
+            <Popup trigger={<button data-text="Awesome" class="buttonpma">
+    <span class="actual-text">&nbsp;New Account&nbsp;</span>
+    <span class="hover-text" aria-hidden="true">&nbsp;New Account &nbsp;</span>
+</button>} modal nested>
               {(close) => (
-                <div className="bg-slate-100/75 flex flex-col items-center p-8 space-y-4 rounded-md">
+                <div className="bg-slate-100/75 flex flex-col items-center p-4 space-y-4 rounded-md">
                   <input placeholder="Name" className="border text-center rounded-md" id="login-name"/>
                   <input placeholder="Email" className="border text-center rounded-md" id="login-email"/>
                   <input placeholder="Password" className="border text-center rounded-md" type="password" id="login-password"/>
@@ -183,7 +186,7 @@ function NavBar() {
               )}
             </Popup>
             {/* End SingUp */}
-            <Popup trigger={<button id="signup-popup-trigger" className="text-sm text-center px-8" onClick={() => switchToSignup()}>LogIn</button>} modal nested>
+            {/* <Popup trigger={<button id="signup-popup-trigger" className="text-sm text-center px-8" onClick={() => switchToSignup()}>LogIn</button>} modal nested>
               {(close) => (
                 <div className="bg-slate-100/75 flex flex-col items-center p-8 space-y-4 rounded-md">
                   <input placeholder="Name" className="border text-center rounded-md" id='signup-name'/>
@@ -203,14 +206,19 @@ function NavBar() {
                   </div>
                 </div>
               )}
-            </Popup>
+            </Popup> */}
           </>
         ) : (
          <>
-         <button className="text-center px-8 text-sm w-20" onClick={handleIconClick}>
+         {/* <button className="text-center px-8 text-sm w-20" onClick={handleIconClick}>
         <p>{"Welcom"+localStorage.getItem('username')}</p>
-      </button>
-
+      </button> */}
+      <div className='w-20 h-10'>
+      <button data-text="Awesome" class="buttonpma" onClick={handleIconClick}>
+    <span class="actual-text">&nbsp;{"Welcom "+localStorage.getItem('username')}&nbsp;</span>
+    <span class="hover-text" aria-hidden="true">&nbsp;{"Welcom "+localStorage.getItem('username')}&nbsp;</span>
+</button>
+</div>
       <Popup trigger={<button id="signup-popup-trigger" className="text-sm text-center px-8 " onClick={handleLogout}></button>} modal nested open={isPopupOpen}>
         <div className='bg-slate-100/75 flex flex-col items-center p-8 space-y-4 rounded-md'>
           <p>{"Welcom : "+localStorage.getItem('username')}</p>

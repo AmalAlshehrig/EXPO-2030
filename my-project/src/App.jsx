@@ -1,4 +1,4 @@
-import Rout from "./components/Rout"
+import Rout from "./Pages/Rout"
 function App() {
   return (
     <div className="cursor-pointer">
